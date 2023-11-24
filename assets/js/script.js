@@ -2,21 +2,23 @@
 let curHour = dayjs().hour();
 
 //#region Functions
-function checkTime(index) {
-  if (index < curHour) {
-    $(`#hour-${index}`).addClass("past");
-    $(`#hour-${index}`).removeClass("present");
-    $(`#hour-${index}`).removeClass("future");
-
-  } else if (index == curHour) {
-    $(`#hour-${index}`).removeClass("past");
-    $(`#hour-${index}`).addClass("present");
-    $(`#hour-${index}`).removeClass("future");
-      ;
-  } else {
-    $(`#hour-${index}`).removeClass("past");
-    $(`#hour-${index}`).removeClass("present");
-    $(`#hour-${index}`).addClass("future");
+function checkTime() {
+  for (let i = 9; i <= 17; i++) {
+    if (i < curHour) {
+      $(`#hour-${i}`).addClass("past");
+      $(`#hour-${i}`).removeClass("present");
+      $(`#hour-${i}`).removeClass("future");
+  
+    } else if (i == curHour) {
+      $(`#hour-${i}`).removeClass("past");
+      $(`#hour-${i}`).addClass("present");
+      $(`#hour-${i}`).removeClass("future");
+        ;
+    } else {
+      $(`#hour-${i}`).removeClass("past");
+      $(`#hour-${i}`).removeClass("present");
+      $(`#hour-${i}`).addClass("future");
+    }
   }
 }
 
@@ -25,8 +27,8 @@ function renderSchedule() {
   for (let i = 9; i <= 17; i++) {
     const text = localStorage.getItem(`hour-${i}`) || " ";
     $(`#hour-${i}`).children("textarea").val(text);
-    checkTime(i);
   }
+  checkTime();
 }
 
 function removeSchedule() {
@@ -63,8 +65,8 @@ function init() {
     // Update the current time
     curHour = dayjs().hour();
 
-    // Re-render the page
-    renderSchedule();
+    // Update the time slot color
+    checkTime();
   }, 1000);
 
   // eventListener for save button click
