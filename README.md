@@ -19,15 +19,9 @@ Click [Here](https://sareacct91.github.io/Day-Scheduler/) for application
 
 Starting/Landing page of the application.
 
-  ![Landing page](assets/Images/screen-shots/main-page.png)
+  ![Landing page](assets/images/screen-shots/main-page.png)
 
- 
-
-  ![Add schedule](assets/Images/screen-shots/example-task.png)
-
-
-
-
+  ![Add schedule](assets/images/screen-shots/example-task.png)
 
 ## Features
 
