@@ -80,7 +80,7 @@ function init() {
 }
 //#endregion functions
 
-// Runs when the page finish loading
-window.onload = () => {
+// Runs when the DOM is ready
+$(function() {
   init();
-};
+});
